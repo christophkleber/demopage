@@ -18,10 +18,15 @@
     <!--REST CALL-->
     <script src="Javascript/restCall.js"></script>
 
-    <!--PAPER DATE PICKER-->
+    <!--WEB COMPONENTS-->
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+
+    <!--PAPER DATE PICKER-->
     <link rel="import" href="Imports/paper-date-picker.html">
+
+    <!--GOOGLE MAP-->
+    <link rel="import" href="Imports/google-map.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -56,6 +61,16 @@
             This is a paper date picker web component.
         </div>
         <paper-date-picker locale="DE" class="adaptive-polymer-element"></paper-date-picker>
+
+    </div>
+    <div class="element gmap">
+        <div class="heading">
+            Google Map
+        </div>
+        <div class="description">
+            This is a google map web component.
+        </div>
+        <google-map zoom="13" api-key="AIzaSyDwEakOAUaXKyJZGkE2lC7GTLmW_MG77hY" class="adaptive-polymer-element"></google-map>
 
     </div>
 

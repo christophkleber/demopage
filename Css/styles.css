@@ -14,3 +14,10 @@ body {
 }
 .container{
 }
+/*GOOGLE MAP*/
+#map {
+    height: 500px;
+}
+.gmap {
+    height: 600px;
+}
