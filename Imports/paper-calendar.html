@@ -182,6 +182,11 @@
         background: #000000;
       }
       /*ADAPTIVE STYLES*/
+      /*TEXT ALTERNATIVES TEXT*/
+      :host(.text) .month-nav.paper-calendar{
+        width: 90%;
+        left: 15px;
+      }
       /*FONT SERIF*/
       :host(.serif), :host(.serif) .month-name.paper-calendar{
         font-family: '"Times New Roman", Times, serif';
@@ -191,15 +196,16 @@
         flex-direction: row-reverse;
       }
       /*FONT SIZE*/
-      :host(.l) , :host(.l) .month-name.paper-calendar{
+      :host(.l) , :host(.l) .month-name.paper-calendar, :host(.text.l) .month-nav.paper-calendar .btn{
         font-size: 16px;
       }
-      :host(.xl), :host(.xl) .month-name.paper-calendar {
+      :host(.xl), :host(.xl) .month-name.paper-calendar, :host(.text.xl) .month-nav.paper-calendar .btn{
         font-size: 18px;
       }
       :host(.xl){
         padding: 5px 0;
       }
+
 
     </style>
     <div id="calendar">

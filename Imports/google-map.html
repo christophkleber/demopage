@@ -825,7 +825,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
             /**
              * Adjustst position of elements again when idle
              */
-            google.maps.event.addListener(this.map, 'idle', function() {
+/*            google.maps.event.addListener(this.map, 'idle', function() {
                 console.log('idle');
                 switch (this.readingDirection){
                     case 'ltr':
@@ -842,7 +842,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
 
                         break;
                 }
-            }.bind(this));
+            }.bind(this));*/
 
             google.maps.event.addListener(this.map, 'maptypeid_changed', function() {
                 this.mapType = this.map.getMapTypeId();
@@ -890,6 +890,8 @@ If you're seeing the message "You have included the Google Maps API multiple tim
             this._changeFontSize();
             this._changeFontStyle();
             this._changeReadingDirection();
+            google.maps.event.trigger(this.map, 'idle');
+
         },
         /**
          * _changeContrast - Changes style of Google Map
@@ -1019,7 +1021,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
          * Based on value of fontSize (m, l, xl)
          */
         _changeFontSize: function () {
-            google.maps.event.addListenerOnce(this.map, 'tilesloaded', function(){
+            google.maps.event.addListenerOnce(this.map, 'idle', function(){
                 var smallText;
                 var bigText;
                 switch (this.fontSize){
@@ -1065,7 +1067,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
          * Based on value of fontStyle (serif)
          */
         _changeFontStyle: function () {
-            google.maps.event.addListenerOnce(this.map, 'tilesloaded', function(){
+            google.maps.event.addListenerOnce(this.map, 'idle', function(){
                 if (this.fontStyle == 'serif'){
                     console.log('changeFont');
                     // Card and Satellite Text
@@ -1089,7 +1091,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
          * Based on value of readingDirection (ltr, rtl)
          */
         _changeReadingDirection: function () {
-            google.maps.event.addListener(this.map, 'tilesloaded', function(){
+            google.maps.event.addListener(this.map, 'idle', function(){
                 switch (this.readingDirection){
                     case 'ltr':
                         break;
@@ -1113,7 +1115,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
          */
         _changeTextAlternatives: function () {
 //            TODO: FIRST LOADING
-            google.maps.event.addListenerOnce(this.map, 'tilesloaded', function(){
+            google.maps.event.addListener(this.map, 'idle', function(){
                 switch (this.textAlternatives) {
                     case 'symbol':
                         // Card and Satellite Text
@@ -1144,22 +1146,27 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                         gmnoprintWrapper.childNodes[0].style.width = zoomWrapperWidth + 'px';
 
                         //Zoom in
-                        var nodeIn = document.createElement('div');
-                        nodeIn.className = 'text';
-                        nodeIn.appendChild(document.createTextNode('Vergrößern'));
+
+                        if (!gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].childNodes[1]){
+                            var nodeIn = document.createElement('div');
+                            nodeIn.className = 'text';
+                            nodeIn.appendChild(document.createTextNode('Vergrößern'));
+                            gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].appendChild(nodeIn);
+                        }
                         gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].childNodes[0].style.display = 'none'; //hide icon
-                        gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].appendChild(nodeIn);
                         gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].style.width = zoomWrapperWidth + 'px';
                         gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].style.height = elementHeight + 'px';
                         gmnoprintWrapper.childNodes[0].childNodes[0].style.width = zoomWrapperWidth + 'px';
 
 
                         //Zoom out
-                        var nodeOut = document.createElement('div');
-                        nodeOut.className = 'text';
-                        nodeOut.appendChild(document.createTextNode('Verkleinern'));
+                        if (!gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].childNodes[1]){
+                            var nodeOut = document.createElement('div');
+                            nodeOut.className = 'text';
+                            nodeOut.appendChild(document.createTextNode('Verkleinern'));
+                            gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].appendChild(nodeOut);
+                        }
                         gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].childNodes[0].style.display = 'none'; //hide icon
-                        gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].appendChild(nodeOut);
                         gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].style.width = zoomWrapperWidth + 'px';
                         gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].style.height = elementHeight + 'px';
                         gmnoprintWrapper.childNodes[0].childNodes[2].style.width = zoomWrapperWidth + 'px';

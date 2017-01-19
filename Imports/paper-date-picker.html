@@ -388,8 +388,9 @@ styling:
        */
       _changeTextAlternatives: function () {
         if (this.textAlternatives == 'text'){
-          document.querySelectorAll('[icon="date-picker:chevron-left"]')[0].innerHTML = 'voriger Monat';
-          document.querySelectorAll('[icon="date-picker:chevron-right"]')[0].innerHTML = 'nächster Monat';
+          document.querySelector('paper-calendar').className += ' text';
+          document.querySelector('[icon="date-picker:chevron-left"]').innerHTML = 'voriger Monat';
+          document.querySelector('[icon="date-picker:chevron-right"]').innerHTML = 'nächster Monat';
         }
       },
       /**

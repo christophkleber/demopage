@@ -1,7 +1,11 @@
 window.onload = loadDoc;
 
 function loadDoc() {
-   // restCall('1');
+    var prefSet = sessionStorage.getItem('prefSet');
+    console.log(prefSet);
+    if(prefSet != null){
+        restCall(prefSet);
+    }
 }
 
 function restCall (prefSet) {
@@ -43,4 +47,9 @@ function restCall (prefSet) {
     var url = 'https://raw.githubusercontent.com/christophkleber/data/master/' + prefSet;
     xhttpreq.open("GET", url, true);
     xhttpreq.send();
+}
+
+function setPrefSet(prefSet) {
+    sessionStorage.setItem('prefSet', prefSet);
+    location.reload();
 }
