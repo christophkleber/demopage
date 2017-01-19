@@ -21,3 +21,8 @@ body {
 .gmap {
     height: 600px;
 }
+.person{
+    padding: 20px;
+    border: 5px solid #3D9970;
+    min-height: 190px;
+}

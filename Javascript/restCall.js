@@ -1,4 +1,10 @@
-window.onload = function loadDoc() {
+window.onload = loadDoc;
+
+function loadDoc() {
+   // restCall('1');
+}
+
+function restCall (prefSet) {
     console.log('xmlhttp');
     var xhttpreq;
     try{
@@ -24,37 +30,8 @@ window.onload = function loadDoc() {
         if (this.readyState == 4 && this.status == 200) {
             var jsonObj = JSON.parse(xhttpreq.responseText);
             console.log(jsonObj);
-            jsonObjPersonOne = [
-                {
-                    "more-contrast": "true",
-                    "text-alternatives": "text",
-                    "font-size": "l",
-                    "reading-direction": "ltr"
-
-                }
-            ];
-            jsonObjPersonTwo = [
-                {
-                    "more-contrast": "true",
-                    "text-alternatives": "text",
-                    "font-style": "serif",
-                    "font-size": "l",
-                    "reading-direction": "rtl"
-
-                }
-            ];
-            jsonObjPersonThree = [
-                {
-                    "more-contrast": "true",
-                    "text-alternatives": "text",
-                    "font-style": "serif",
-                    "font-size": "l",
-                    "reading-direction": "rtl"
-
-                }
-            ];
-            jsonObj = jsonObjPersonOne;
             var adaptiveElements = document.querySelectorAll('.adaptive-polymer-element');
+            console.log(adaptiveElements);
             for (var i = 0; i < adaptiveElements.length; i++) {
                 for (var prop in jsonObj[0]) {
                     adaptiveElements[i].setAttribute(prop, jsonObj[0][prop]);
@@ -63,7 +40,7 @@ window.onload = function loadDoc() {
             }
         }
     };
-    xhttpreq.open("GET", 'https://raw.githubusercontent.com/christophkleber/data/master/person-two.json', true);
+    var url = 'https://raw.githubusercontent.com/christophkleber/data/master/' + prefSet;
+    xhttpreq.open("GET", url, true);
     xhttpreq.send();
-
-};
+}
