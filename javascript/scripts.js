@@ -4,11 +4,11 @@ function loadDoc() {
     var prefSet = sessionStorage.getItem('prefSet');
     console.log(prefSet);
     if(prefSet != null){
-        restCall(prefSet);
+        loadPref(prefSet);
     }
 }
 
-function restCall (prefSet) {
+function loadPref (prefSet) {
     console.log('xmlhttp');
     var xhttpreq;
     try{
@@ -34,14 +34,8 @@ function restCall (prefSet) {
         if (this.readyState == 4 && this.status == 200) {
             var jsonObj = JSON.parse(xhttpreq.responseText);
             console.log(jsonObj);
-            var adaptiveElements = document.querySelectorAll('.adaptive-polymer-element');
-            console.log(adaptiveElements);
-            for (var i = 0; i < adaptiveElements.length; i++) {
-                for (var prop in jsonObj[0]) {
-                    adaptiveElements[i].setAttribute(prop, jsonObj[0][prop]);
-                }
-                adaptiveElements[i].adaptive();
-            }
+            adaptToUser(jsonObj);
+
         }
     };
     var url = 'https://raw.githubusercontent.com/christophkleber/data/master/' + prefSet;
@@ -52,4 +46,15 @@ function restCall (prefSet) {
 function setPrefSet(prefSet) {
     sessionStorage.setItem('prefSet', prefSet);
     location.reload();
+}
+
+function adaptToUser(jsonObj) {
+    var adaptiveElements = document.querySelectorAll('.adaptive-polymer-element');
+    console.log(adaptiveElements);
+    for (var i = 0; i < adaptiveElements.length; i++) {
+        for (var prop in jsonObj[0]) {
+            adaptiveElements[i].setAttribute(prop, jsonObj[0][prop]);
+        }
+        adaptiveElements[i].adaptive();
+    }
 }
