@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Adaptive Web Components</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link href="css/styles.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+
+
+
+</head>
+
+<body class="users">
+
+    <div class="row person-row">
+        <div class="col-md-4 person">
+            <img src="noun_68172_cc.png" alt="">
+            <p class="user">Luke</p>
+            <ul>
+                <li>Would like increased contrast.</li>
+                <li>Would like a very increased text size.</li>
+                <li>Reads from right to left.</li>
+            </ul>
+            <button type="button" class="btn btn-info" onclick="setPrefSet(1)">Adapt to this user</button>
+        </div>
+        <div class="col-md-4 person">
+            <img src="noun_68208_cc.png" alt="">
+            <p class="user">Lisa</p>
+            <ul>
+                <li>Would like to see symbols instead text.</li>
+                <li>Would like a serif text style.</li>
+                <br>
+            </ul>
+            <button type="button" class="btn btn-info" onclick="setPrefSet(2)">Adapt to this user</button>
+        </div>
+        <div class="col-md-4 person">
+            <img src="noun_68172_cc.png" alt="">
+
+            <p class="user">Mike</p>
+            <ul>
+                <li>Would like to see text instead of symbols.</li>
+                <li>Would like a serif text style.</li>
+                <li>Would like a increased text size.</li>
+            </ul>
+            <button type="button" class="btn btn-info" onclick="setPrefSet(3)">Adapt to this user</button>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

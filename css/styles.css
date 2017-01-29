@@ -1,5 +1,8 @@
 body, a {
     color: #000000;
+    font-family: 'Raleway';
+    overflow-x: hidden;
+    min-width: 580px;
 }
 body {
     padding-top: 50px;
@@ -7,13 +10,41 @@ body {
 .navbar {
     background-color: #3D9970;
 }
-.element{
+.navbar-brand {
+    color: #ffffff;
+    font-size: 20px;
+}
+.element {
     border: 5px solid #3D9970;
     margin: 20px 0;
-    padding: 30px;
 }
-.container{
+.container {
+    text-align: center;
 }
+.btn-info {
+    background-color: #3D9970;
+    border-color: #3D9970;
+}
+.heading {
+    background-color: rgba(61,153,112,0.4);
+    padding: 10px;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+.adaptive-polymer-element{
+    margin-bottom: 20px;
+}
+.person-row {
+    text-align: center;
+}
+.person-row ul{
+    text-align: left;
+    margin-left: 75px;
+}
+.person-row img{
+    height: 120px;
+}
+
 /*GOOGLE MAP*/
 #map {
     height: 500px;
@@ -21,8 +52,30 @@ body {
 .gmap {
     height: 600px;
 }
+
+/*PERSONS*/
 .person{
-    padding: 20px;
-    border: 5px solid #3D9970;
-    min-height: 190px;
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(61,153,112,0.4);
+    min-height: 280px;
+}
+.person.selected{
+    background-color: rgba(61,153,112,0.1);
+}
+.legal{
+    margin-top: 40px;
+    display: none;
+}
+
+/*USERS PAGE*/
+.users .person{
+    padding: 200px 0 300px 0;
+    font-size: 20px;
+}
+.users ul {
+    margin-left: 50px;
+}
+.users {
+    padding-top: 0;
+    overflow: hidden;
 }

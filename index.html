@@ -31,6 +31,9 @@
     <link rel="import" href="imports/iron-data-table.html">
     <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+
+
 
 </head>
 
@@ -50,9 +53,10 @@
     </div>
 </nav>
 
-    <div class="row">
+    <div class="row person-row">
         <div class="col-md-4 person">
-            <p class="user">Lukas</p>
+            <img src="noun_68172_cc.png" alt="">
+            <p class="user">Luke</p>
             <ul>
                 <li>Would like increased contrast.</li>
                 <li>Would like a very increased text size.</li>
@@ -61,7 +65,8 @@
             <button type="button" class="btn btn-info" onclick="setPrefSet(1)">Adapt to this user</button>
         </div>
         <div class="col-md-4 person">
-            <p class="user">Maria</p>
+            <img src="noun_68208_cc.png" alt="">
+            <p class="user">Lisa</p>
             <ul>
                 <li>Would like to see symbols instead text.</li>
                 <li>Would like a serif text style.</li>
@@ -70,7 +75,9 @@
             <button type="button" class="btn btn-info" onclick="setPrefSet(2)">Adapt to this user</button>
         </div>
         <div class="col-md-4 person">
-            <p class="user">Florian</p>
+            <img src="noun_68172_cc.png" alt="">
+
+            <p class="user">Mike</p>
             <ul>
                 <li>Would like to see text instead of symbols.</li>
                 <li>Would like a serif text style.</li>
@@ -83,20 +90,16 @@
 
     <div class="element">
         <div class="heading">
-            Paper Date Picker
-        </div>
-        <div class="description">
-            This is a paper date picker web component.
+            Paper Date Picker <br>
+            This web component shows a calendar where dates can be picked.
         </div>
         <paper-date-picker locale="DE" class="adaptive-polymer-element"></paper-date-picker>
 
     </div>
     <div class="element">
         <div class="heading">
-            Iron Data Table
-        </div>
-        <div class="description">
-            This is a iron data table web component.
+            Iron Data Table <br>
+            This web component shows a table.
         </div>
         <template is="dom-bind">
             <iron-ajax url="https://raw.githubusercontent.com/christophkleber/data/master/data.json" last-response="{{data}}" auto></iron-ajax>
@@ -119,13 +122,18 @@
 
     <div class="element gmap">
         <div class="heading">
-            Google Map
-        </div>
-        <div class="description">
-            This is a google map web component.
+            Google Map <br>
+            This web component shows a map, based on the 'google map'.
         </div>
         <google-map zoom="13" api-key="AIzaSyDwEakOAUaXKyJZGkE2lC7GTLmW_MG77hY" class="adaptive-polymer-element"></google-map>
 
+    </div>
+    <div class="legal">
+        The icons used on this website to display a female and male are from the set
+        'Man by Eugen Belyakoff from the Noun Project'
+        https://thenounproject.com/eugen.belyakoff/collection/man/
+        Licenced under CC BY 3.0
+        https://creativecommons.org/licenses/by/3.0/legalcode
     </div>
 
 </div>

@@ -5,6 +5,8 @@ function loadDoc() {
     console.log(prefSet);
     if(prefSet != null){
         loadPref(prefSet);
+        changeSelectedStyle(prefSet);
+
     }
 }
 
@@ -46,6 +48,8 @@ function loadPref (prefSet) {
 function setPrefSet(prefSet) {
     sessionStorage.setItem('prefSet', prefSet);
     location.reload();
+
+
 }
 
 function adaptToUser(jsonObj) {
@@ -57,4 +61,13 @@ function adaptToUser(jsonObj) {
         }
         adaptiveElements[i].adaptive();
     }
+}
+
+function changeSelectedStyle (prefSet) {
+    var persons = document.querySelectorAll('.person');
+    var person = persons[prefSet-1];
+    person.className += ' selected';
+    var btn = person.querySelector('.btn');
+    btn.innerHTML='Adapted';
+    console.log('button:' + btn);
 }
