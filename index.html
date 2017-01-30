@@ -11,6 +11,7 @@
 
     <title>Adaptive Web Components</title>
 
+    <!--BOOTSTRAP-->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
     <link href="css/styles.css" rel="stylesheet">
@@ -31,6 +32,7 @@
     <link rel="import" href="imports/iron-data-table.html">
     <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 
+    <!--RALEWAY FONT-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
 
 
@@ -55,7 +57,7 @@
 
     <div class="row person-row">
         <div class="col-md-4 person">
-            <img src="noun_68172_cc.png" alt="">
+            <img src="luke.png" alt="Icon Luke">
             <p class="user">Luke</p>
             <ul>
                 <li>Would like increased contrast.</li>
@@ -65,7 +67,7 @@
             <button type="button" class="btn btn-info" onclick="setPrefSet(1)">Adapt to this user</button>
         </div>
         <div class="col-md-4 person">
-            <img src="noun_68208_cc.png" alt="">
+            <img src="lisa.png" alt="Icon Lisa">
             <p class="user">Lisa</p>
             <ul>
                 <li>Would like to see symbols instead text.</li>
@@ -75,7 +77,7 @@
             <button type="button" class="btn btn-info" onclick="setPrefSet(2)">Adapt to this user</button>
         </div>
         <div class="col-md-4 person">
-            <img src="noun_68189_cc.png" alt="">
+            <img src="mike.png" alt="Icon Mike">
 
             <p class="user">Mike</p>
             <ul>
@@ -102,18 +104,18 @@
             This web component shows a table.
         </div>
         <template is="dom-bind">
-            <iron-ajax url="https://raw.githubusercontent.com/christophkleber/data/master/data.json" last-response="{{data}}" auto></iron-ajax>
+            <iron-ajax url="https://raw.githubusercontent.com/christophkleber/data/master/dataEn.json" last-response="{{data}}" auto></iron-ajax>
             <iron-data-table items="[[data]]" selectable multi-selection class="adaptive-polymer-element">
-                <data-table-column name="Anrede">
+                <data-table-column name="Title">
                     <template>[[item.name.title]]</template>
                 </data-table-column>
-                <data-table-column name="Vorname">
+                <data-table-column name="First name">
                     <template>[[item.name.first]]</template>
                 </data-table-column>
-                <data-table-column name="Nachname">
+                <data-table-column name="Last name">
                     <template>[[item.name.last]]</template>
                 </data-table-column>
-                <data-table-column name="Alter">
+                <data-table-column name="Age">
                     <template>[[item.name.age]]</template>
                 </data-table-column>
             </iron-data-table>
@@ -129,16 +131,16 @@
 
     </div>
     <div class="legal">
-        The icons used on this website to display a female and male are from the set
-        'Man by Eugen Belyakoff from the Noun Project'
-        https://thenounproject.com/eugen.belyakoff/collection/man/
+        The icons used on this website to display a female and two male persons are from the set
+        'Man by Eugen Belyakoff from the Noun Project' <br>
+        https://thenounproject.com/eugen.belyakoff/collection/man/ <br>
         Licenced under CC BY 3.0
         https://creativecommons.org/licenses/by/3.0/legalcode
     </div>
 
 </div>
 
-
+<!--BOOTSTRAP AND JQUERY JAVASCRIPT-->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
