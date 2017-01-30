@@ -365,6 +365,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
              */
             language: {
                 type: String,
+                /*DEMONSTRATION IN ENGLISH*/
                 value: 'EN'
             },
 
@@ -825,28 +826,6 @@ If you're seeing the message "You have included the Google Maps API multiple tim
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
                 this.zoom = this.map.getZoom();
             }.bind(this));
-            /**
-             * Adjustst position of elements again when idle
-             */
-/*            google.maps.event.addListener(this.map, 'idle', function() {
-                console.log('idle');
-                switch (this.readingDirection){
-                    case 'ltr':
-                        console.log('ltr');
-                        break;
-                    case 'rtl':
-                        console.log('rtl');
-                        //Streetview, Zoom Settings
-                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom').style.right = 'auto';
-                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.left = 0 + 'px';
-                        //Card, Satellite Settings
-                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.left = 'auto';
-                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.right = 0 + 'px';
-
-                        break;
-                }
-            }.bind(this));*/
-
             google.maps.event.addListener(this.map, 'maptypeid_changed', function() {
                 this.mapType = this.map.getMapTypeId();
             }.bind(this));
@@ -1039,15 +1018,14 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                     case 'l':
                         smallText = 14;
                         bigText = 16;
-                        //Position of Footer Text Elements
-                        document.querySelectorAll('#map .gmnoprint')[0].style.right = 358 + 'px';
+                        /*POSITION OF FOOTER TEXT ELEMENTS*/                        document.querySelectorAll('#map .gmnoprint')[0].style.right = 358 + 'px';
                         document.querySelectorAll('#map .gmnoprint')[0].style.width = 185 + 'px';
                         document.querySelectorAll('#map .gmnoprint')[1].style.right = 207 + 'px';
                         break;
                     case 'xl':
                         smallText = 16;
                         bigText = 18;
-                        //Position of Footer Text Elements
+                        /*POSITION OF FOOTER TEXT ELEMENTS*/
                         document.querySelectorAll('#map .gmnoprint')[0].style.right = 407 + 'px';
                         document.querySelectorAll('#map .gmnoprint')[0].style.width = 210 + 'px';
                         document.querySelectorAll('#map .gmnoprint')[1].style.right = 235 + 'px';
@@ -1055,16 +1033,15 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                     default:
                         break;
                 }
-                // Card and Satellite Text
+                /*MAPTYPE TEXTS*/
                 document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[0].style.fontSize = bigText + 'px';
                 document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[1].style.fontSize = bigText + 'px';
-                //Footer Text
+                /*FOOTER TEXTS*/
                 document.querySelector('#map .gmnoprint .gm-style-cc div a + span').style.fontSize = smallText + 'px';
                 document.querySelector('#map .gmnoprint.gm-style-cc div a').style.fontSize = smallText + 'px';
                 document.querySelectorAll('#map .gm-style-cc div a')[2].style.fontSize = smallText + 'px';
-                // Zoom Controls
+                /*ZOOM TEXTS*/
                 var zoomTexts = document.querySelectorAll('.text');
-                console.log(zoomTexts);
                 for (i = 0; i < zoomTexts.length; i++) {
                     zoomTexts[i].style.fontSize = bigText + 'px';
                 }
@@ -1077,16 +1054,14 @@ If you're seeing the message "You have included the Google Maps API multiple tim
         _changeFontStyle: function () {
             google.maps.event.addListener(this.map, 'idle', function(){
                 if (this.fontStyle == 'serif'){
-                    console.log('changeFont');
-                    // Card and Satellite Text
+                    /*MAPTYPE TEXTS*/
                     document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[0].style.fontFamily = '"Times New Roman", Times, serif';
                     document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[1].style.fontFamily = '"Times New Roman", Times, serif';
-                    //Footer Text
+                    /*FOOTER TEXTS*/
                     document.querySelector('#map .gmnoprint .gm-style-cc div a + span').style.fontFamily = '"Times New Roman", Times, serif';
                     document.querySelector('#map .gmnoprint.gm-style-cc div a').style.fontFamily = '"Times New Roman", Times, serif';
                     document.querySelectorAll('#map .gm-style-cc div a')[2].style.fontFamily  = '"Times New Roman", Times, serif';
                     var texts = document.querySelectorAll('.text');
-
                     for (i = 0; i < texts.length; i++) {
                         texts[i].style.fontFamily = '"Times New Roman", Times, serif';
                     }
@@ -1104,18 +1079,15 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                     case 'ltr':
                         break;
                     case 'rtl':
-                        //Streetview, Zoom Settings
+                        /*STREETVIEW AND ZOOM SETTINGS*/
                         document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom').style.right = 'auto';
-//                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.left = 0 + 'px';
-                        //Card, Satellite Settings
+                        /*MATYPE SETTINGS*/
                         document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.left = 'auto';
                         document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom + .gmnoprint').style.right = 0 + 'px';
                         break;
                 }
 
             }.bind(this));
-
-
         },
         /**
          * _changeTextAlternatives - Changes the web components texts or symbols
@@ -1125,7 +1097,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
             google.maps.event.addListener(this.map, 'idle', function(){
                 switch (this.textAlternatives) {
                     case 'symbol':
-                        // Card and Satellite Text
+                        /*MAPTYPE TEXTS*/
                         document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[0].innerHTML = '<i class="fa fa-map"></i>';
                         document.querySelectorAll('#map .gmnoprint .gm-style-mtc > div:first-child')[1].innerHTML = '<i class="fa fa-globe"></i>';
                         break;
@@ -1151,9 +1123,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                                 break;
                         }
                         gmnoprintWrapper.childNodes[0].style.width = zoomWrapperWidth + 'px';
-
-                        //Zoom in
-
+                        /*ZOOM IN*/
                         if (!gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].childNodes[1]){
                             var nodeIn = document.createElement('div');
                             nodeIn.className = 'text';
@@ -1166,7 +1136,7 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                         gmnoprintWrapper.childNodes[0].childNodes[0].style.width = zoomWrapperWidth + 'px';
 
 
-                        //Zoom out
+                        /*ZOOM OUT*/
                         if (!gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].childNodes[1]){
                             var nodeOut = document.createElement('div');
                             nodeOut.className = 'text';
@@ -1183,7 +1153,53 @@ If you're seeing the message "You have included the Google Maps API multiple tim
                     default:
                 }
             }.bind(this));
+            google.maps.event.addListener(this.map, 'mouseout', function(){
+                if (this.textAlternatives == 'text') {
+                    if(this.readingDirection == 'ltr'){
+                        document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom').style.right = '105px';
+                    }
+                    var gmnoprintWrapper = document.querySelector('.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom .gmnoprint');
+                    var zoomWrapperWidth = 67;
+                    var elementHeight = 30;
+                    switch (this.fontSize) {
+                        case 'm':
+                            break;
+                        case 'l':
+                            zoomWrapperWidth = 90;
+                            elementHeight = 30;
+                            break;
+                        case 'xl':
+                            zoomWrapperWidth = 100;
+                            elementHeight = 30;
+                            break;
+                        default:
+                            break;
+                    }
+                    gmnoprintWrapper.childNodes[0].style.width = zoomWrapperWidth + 'px';
+                    /*ZOOM IN*/
+                    if (!gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].childNodes[1]){
+                        var nodeIn = document.createElement('div');
+                        nodeIn.className = 'text';
+                        nodeIn.appendChild(document.createTextNode('Vergrößern'));
+                        gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].appendChild(nodeIn);
+                    }
+                    gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].childNodes[0].style.display = 'none'; //hide icon
+                    gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].style.width = zoomWrapperWidth + 'px';
+                    gmnoprintWrapper.childNodes[0].childNodes[0].childNodes[0].style.height = elementHeight + 'px';
+                    gmnoprintWrapper.childNodes[0].childNodes[0].style.width = zoomWrapperWidth + 'px';
+                    /*ZOOM OUT*/
+                    if (!gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].childNodes[1]){
+                        var nodeOut = document.createElement('div');
+                        nodeOut.className = 'text';
+                        nodeOut.appendChild(document.createTextNode('Verkleinern'));
+                        gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].appendChild(nodeOut);
+                    }
+                    gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].childNodes[0].style.display = 'none'; //hide icon
+                    gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].style.width = zoomWrapperWidth + 'px';
+                    gmnoprintWrapper.childNodes[0].childNodes[2].childNodes[0].style.height = elementHeight + 'px';
+                    gmnoprintWrapper.childNodes[0].childNodes[2].style.width = zoomWrapperWidth + 'px';
+                }
+            }.bind(this));
         }
-
     });
 </script>

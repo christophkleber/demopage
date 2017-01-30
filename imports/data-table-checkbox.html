@@ -168,9 +168,11 @@
           var checkbox = document.querySelectorAll('data-table-checkbox');
           for (var i = 0; i < checkbox.length; i++) {
               if (checkbox[i].classList.contains('text') && checkbox[i].hasAttribute('checked')) {
-                  checkbox[i].innerHTML = 'chosen';
+                /*DEMONSTRATION IN ENGLISH*/
+                checkbox[i].innerHTML = 'chosen';
               } else if (checkbox[i].classList.contains('text')){
-                  checkbox[i].innerHTML = 'choose';
+                /*DEMONSTRATION IN ENGLISH*/
+                checkbox[i].innerHTML = 'choose';
               }
           }
 
